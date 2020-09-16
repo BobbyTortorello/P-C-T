@@ -9,9 +9,9 @@
 import UIKit
 import CoreData
 
-class StartViewController: UIViewController, UITableViewDelegate {
-
-     @IBOutlet weak var myPetsTableView: UITableView!
+class StartViewController: UIViewController, UITableViewDelegate, UITabBarDelegate {
+	
+	@IBOutlet weak var myPetsTableView: UITableView!
      @IBOutlet weak var lostPetsTableView: UITableView!
      @IBOutlet weak var addPetButton: UIButton!
      
@@ -41,11 +41,26 @@ class StartViewController: UIViewController, UITableViewDelegate {
                         print(myPet.count)
                         myPetsTableView.reloadData()
                    } catch {}
+		
     }
      @IBAction func addPet(_ sender: UIButton) {
           let vc = storyboard?.instantiateViewController(withIdentifier: "newPetVC")
           navigationController?.show(vc!, sender: nil)
      }
+	
+	//MARK: Toolbar Buttons
+	@IBAction func myPetsButton(_ sender: UIBarButtonItem) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "myPetsVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}
+	@IBAction func lostPetsButton(_ sender: UIBarButtonItem) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "lostPetsVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}
+	@IBAction func messagesButton(_ sender: UIBarButtonItem) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "messagesVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}	
 }
 
 extension StartViewController: UITableViewDataSource {
@@ -80,4 +95,15 @@ extension StartViewController: UITableViewDataSource {
           
           return cell!
      }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == myPetsTableView {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "petVC")
+            navigationController?.show(vc!, sender: nil)
+        }
+        
+        if tableView == lostPetsTableView  {
+            
+        }
+    }
 }

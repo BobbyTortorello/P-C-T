@@ -20,8 +20,8 @@ class AddNewPetViewController: UIViewController, UIImagePickerControllerDelegate
      let myPets = [MyPets]()
      let imagePicker = UIImagePickerController()
      
-     override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
           imagePicker.delegate = self
         // Do any additional setup after loading the view.
     }
@@ -31,16 +31,13 @@ class AddNewPetViewController: UIViewController, UIImagePickerControllerDelegate
           myPet.petName = petNameTextField.text!
           myPet.petType = petTypeTextField.text!
           myPet.petBreed = petBreedTextField.text!
-          myPet.petImage = petImageView.image!
+          //myPet.petImage = petImageView.image!
           
           PersistanceService.saveContext()
-          
-          let vc = storyboard?.instantiateViewController(withIdentifier: "myPetsVC")
-          //tabBarController?.show(vc!, sender: nil)
-//          navigationController?.show(vc!, sender: nil)
-          navigationController?.tabBarController?.show(vc!, sender: nil)
-          navigationController?.tabBarController?.hidesBottomBarWhenPushed = false
-     }
+		
+		let vc = storyboard?.instantiateViewController(withIdentifier: "myPetsVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}
      
      @IBAction func selectImageAction(_ sender: UIButton) {
           let alert = UIAlertController(title: "Location of Image", message: "Please Select Camera or Photo Library", preferredStyle: .alert)
@@ -66,4 +63,22 @@ class AddNewPetViewController: UIViewController, UIImagePickerControllerDelegate
           }
           selectImageLabel.text = "Touch Here to Change Selected Image"
      }
+	
+	//MARK: Toolbar Buttons
+	@IBAction func homeButton(_ sender: UIBarButtonItem) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "homeVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}
+	@IBAction func myPetsButton(_ sender: UIBarButtonItem) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "myPetsVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}
+	@IBAction func lostPetsButton(_ sender: UIBarButtonItem) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "lostPetsVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}
+	@IBAction func messagesButton(_ sender: UIBarButtonItem) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "messagesVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}
 }
