@@ -29,9 +29,16 @@ class StartViewController: UIViewController, UITableViewDelegate, UITabBarDelega
           lostPetsTableView.dataSource = self
           
           addPetButton.isHidden = true
-          if userDefualts.string(forKey: "userName") == nil {
-               let vc = storyboard?.instantiateViewController(withIdentifier: "accountVC")
-               navigationController?.show(vc!, sender: nil)
+          if userDefualts.bool(forKey: "accountCreated") == false {
+			let alert = UIAlertController(title: "Do you want to create an account?", message: "You need one to add your own pets.", preferredStyle: .alert)
+			let yes = UIAlertAction(title: "Yes, please", style: .default) { (action) in
+				let vc = self.storyboard?.instantiateViewController(withIdentifier: "accountVC")
+				self.navigationController?.pushViewController(vc!, animated: false)
+			}
+			let no = UIAlertAction(title: "Not Right Now", style: .cancel, handler: nil)
+			alert.addAction(yes)
+			alert.addAction(no)
+			present(alert, animated: true, completion: nil)
           }
           
           let fetchRequest: NSFetchRequest<MyPets> = MyPets.fetchRequest()
