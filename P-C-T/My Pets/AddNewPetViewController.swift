@@ -31,7 +31,7 @@ class AddNewPetViewController: UIViewController, UIImagePickerControllerDelegate
           myPet.petName = petNameTextField.text!
           myPet.petType = petTypeTextField.text!
           myPet.petBreed = petBreedTextField.text!
-          //myPet.petImage = petImageView.image!
+		myPet.petImage = petImageView.image!
           
           PersistanceService.saveContext()
 		

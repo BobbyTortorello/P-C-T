@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class PetViewController: UIViewController {
 
@@ -15,21 +16,40 @@ class PetViewController: UIViewController {
 	@IBOutlet weak var petBreedLabel: UILabel!
 	@IBOutlet weak var petImageView: UIImageView!
 
-    override func viewDidLoad() {
-		super.viewDidLoad()
 	
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+	var petImage = UIImage()
+	var petName = String()
+	var petType = String()
+	var petBreed = String()
+	
+	var db = Firestore.firestore()
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		petImageView.image = petImage
+		petNameLabel.text = petName
+		petTypeLabel.text = petType
+		petBreedLabel.text = petBreed
+	}
+	
+	@IBAction func markAsMissingButton(_ sender: UIButton) {
+		db.collection("lostPets").document("\(petName)-\(123)").setData([
+			"petName" : petName,
+			"petType" : petType,
+			"petBreed" : petBreed
+		]) { err in
+			if let err = err {
+				print("Could not upload file due to \(err)")
+			} else {
+				let alert = UIAlertController(title: "Your pet has been marked as missing.", message: "People can now start looking for it!", preferredStyle: .alert)
+				let okay = UIAlertAction(title: "Okay", style: .default, handler: nil)
+				alert.addAction(okay)
+				self.present(alert, animated: true, completion: nil)
+			}
+			
+		}
+	}
+	
 
 	//MARK: Toolbar Buttons
 	@IBAction func homeButton(_ sender: UIBarButtonItem) {

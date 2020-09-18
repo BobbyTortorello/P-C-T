@@ -22,5 +22,4 @@ extension MyPets {
     @NSManaged public var petType: String?
     @NSManaged public var petBreed: String?
     @NSManaged public var petImage: UIImage?
-
 }

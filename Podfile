@@ -8,7 +8,8 @@ target 'P-C-T' do
   # Pods for P-C-T
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Firestore'
-  pod 'Firebase/Performance' 
+  pod 'Firebase/Performance'
+  pod 'Firebase/Storage'
   
   pod 'MessageKit'
   

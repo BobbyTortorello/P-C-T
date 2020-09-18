@@ -48,10 +48,19 @@ class MyPetsViewController: UIViewController, UITableViewDelegate {
 		navigationController?.pushViewController(vc!, animated: false)
 	}
 	
+	//Segue Function
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		let indexPath = myPetsTableView.indexPathForSelectedRow
+		let vc = segue.destination as? PetViewController
+		vc?.petImage = myPets[(indexPath?.row)!].petImage ?? UIImage()
+		vc?.petName = myPets[(indexPath?.row)!].petName ?? String()
+		vc?.petType = myPets[(indexPath?.row)!].petType ?? String()
+		vc?.petBreed = myPets[(indexPath?.row)!].petBreed ?? String()
+	}
 }
 
 extension MyPetsViewController: UITableViewDataSource {
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
           return myPets.count
      }
      
@@ -59,14 +68,9 @@ extension MyPetsViewController: UITableViewDataSource {
           let cell = tableView.dequeueReusableCell(withIdentifier: "myPetsTVC", for: indexPath)
           cell.textLabel?.text = myPets[indexPath.row].petName
           cell.detailTextLabel?.text = myPets[indexPath.row].petType
-          cell.imageView?.image = myPets[indexPath.row].petImage
+		cell.imageView?.image = myPets[indexPath.row].petImage
           return cell
      }
-     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "petVC")
-        navigationController?.show(vc!, sender: nil)
-    }
 	
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {

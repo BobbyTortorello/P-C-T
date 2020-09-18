@@ -43,10 +43,21 @@ class StartViewController: UIViewController, UITableViewDelegate, UITabBarDelega
                    } catch {}
 		
     }
+	
      @IBAction func addPet(_ sender: UIButton) {
           let vc = storyboard?.instantiateViewController(withIdentifier: "newPetVC")
-          navigationController?.show(vc!, sender: nil)
+          navigationController?.pushViewController(vc!, animated: false)
      }
+	
+	//Segue Function
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		let indexPath = myPetsTableView.indexPathForSelectedRow
+		let vc = segue.destination as? PetViewController
+		vc?.petImage = myPets[(indexPath?.row)!].petImage ?? UIImage()
+		vc?.petName = myPets[(indexPath?.row)!].petName ?? String()
+		vc?.petType = myPets[(indexPath?.row)!].petType ?? String()
+		vc?.petBreed = myPets[(indexPath?.row)!].petBreed ?? String()
+	}
 	
 	//MARK: Toolbar Buttons
 	@IBAction func myPetsButton(_ sender: UIBarButtonItem) {
@@ -60,9 +71,10 @@ class StartViewController: UIViewController, UITableViewDelegate, UITabBarDelega
 	@IBAction func messagesButton(_ sender: UIBarButtonItem) {
 		let vc = storyboard?.instantiateViewController(withIdentifier: "messagesVC")
 		navigationController?.pushViewController(vc!, animated: false)
-	}	
+	}
 }
 
+//MARK: TableView Functions
 extension StartViewController: UITableViewDataSource {
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
           var count: Int?
@@ -95,15 +107,4 @@ extension StartViewController: UITableViewDataSource {
           
           return cell!
      }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == myPetsTableView {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "petVC")
-            navigationController?.show(vc!, sender: nil)
-        }
-        
-        if tableView == lostPetsTableView  {
-            
-        }
-    }
 }
