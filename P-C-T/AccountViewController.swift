@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class AccountViewController: UIViewController {
      
@@ -14,19 +15,28 @@ class AccountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-          userDefaults.set("Hello", forKey: "userName")
         // Do any additional setup after loading the view.
     }
-    
+	
+	//MARK: ToolBar Buttons
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	@IBAction func homeButton(_ sender: UIBarButtonItem) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "homeVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}
+	
+	@IBAction func myPetsButton(_ sender: UIBarButtonItem) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "myPetsVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}
+	
+	@IBAction func lostPetsButton(_ sender: UIBarButtonItem) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "lostPetsVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}
+	
+	@IBAction func messagesButton(_ sender: UIBarButtonItem) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "messagesVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}
 }

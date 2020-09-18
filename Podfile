@@ -10,7 +10,8 @@ target 'P-C-T' do
 	pod 'Firebase/Firestore'
   pod 'Firebase/Performance'
   pod 'Firebase/Storage'
-  
+  pod 'GooglePlaces'
+
   pod 'MessageKit'
   
   target 'P-C-TTests' do
