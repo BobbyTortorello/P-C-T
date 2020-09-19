@@ -94,7 +94,7 @@ class AccountViewController: UIViewController {
 			
 			let alert = UIAlertController(title: "Do you want to add a pet?", message: "You can always add one later.", preferredStyle: .alert)
 			let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
-				let vc = self.storyboard?.instantiateViewController(withIdentifier: "addPetVC")
+				let vc = self.storyboard?.instantiateViewController(withIdentifier: "newPetVC")
 				self.navigationController?.pushViewController(vc!, animated: false)
 				self.userDefaults.setValue(true, forKey: "accountCreated")
 			}

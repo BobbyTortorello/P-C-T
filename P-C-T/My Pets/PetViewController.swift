@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseStorage
+import CoreData
 
 class PetViewController: UIViewController {
 
@@ -24,6 +25,8 @@ class PetViewController: UIViewController {
 	var petBreed = String()
 	
 	var db = Firestore.firestore()
+	var storage = Storage.storage()
+	let defaults = UserDefaults.standard
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -34,10 +37,21 @@ class PetViewController: UIViewController {
 	}
 	
 	@IBAction func markAsMissingButton(_ sender: UIButton) {
-		db.collection("lostPets").document("\(petName)-\(123)").setData([
+		let storageRef = storage.reference()
+		print(storage.reference())
+		let fileName = "\(petName)-\(defaults.string(forKey: "userPhoneNumber") ?? String())"
+		let data = petImage.pngData()
+		
+		let lostPetRef = storageRef.child("lostPets/\(fileName).jpg")
+		db.collection("lostPets").document("\(petName)-\(defaults.string(forKey: "userPhoneNumber") ?? String())").setData([
 			"petName" : petName,
 			"petType" : petType,
-			"petBreed" : petBreed
+			"petBreed" : petBreed,
+			"petImage": lostPetRef.fullPath,
+			"userName" : defaults.string(forKey: "userName") ?? String(),
+			"userEmail" : defaults.string(forKey: "userEmail") ?? String(),
+			"userPhoneNumber" : defaults.string(forKey: "userPhoneNumber") ?? String(),
+			"userAddress" : defaults.string(forKey: "userAddress") ?? String()
 		]) { err in
 			if let err = err {
 				print("Could not upload file due to \(err)")
@@ -47,7 +61,16 @@ class PetViewController: UIViewController {
 				alert.addAction(okay)
 				self.present(alert, animated: true, completion: nil)
 			}
-			
+		
+		}
+		
+		//MARK: Firebase Storage Function
+		// Upload the file to the path "lostPets/petName-userPhoneNumber.jpg"
+		let uploadTask = lostPetRef.putData(data!, metadata: nil) { (metadata, error) in
+		    guard let metadata = metadata else {
+			print(error as Any)
+			   return
+		    }
 		}
 	}
 	
