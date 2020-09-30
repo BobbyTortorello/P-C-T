@@ -7,27 +7,71 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseStorage
 
-class LostPetsViewController: UIViewController {
+class LostPetsViewController: UIViewController, UITableViewDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
+	@IBOutlet var lostPetsTableView: UITableView!
+	
+	var petName = [String]()
+	var petType = [String]()
+		
+	let db = Firestore.firestore()
+	let storage = Storage.storage()
+	
+	private var lostPets: [LostPets] = []
+	private var documents: [DocumentSnapshot] = []
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		// Do any additional setup after loading the view.
+		lostPetsTableView.delegate = self
+		lostPetsTableView.dataSource = self
+		
+		reloadData()
+	}
 
     //MARK: Toolbar Buttons
 	@IBAction func homeButton(_ sender: UIBarButtonItem) {
 		let vc = storyboard?.instantiateViewController(withIdentifier: "homeVC")
 		navigationController?.pushViewController(vc!, animated: false)
 	}
-    @IBAction func myPetsButton(_ sender: UIBarButtonItem) {
+	@IBAction func myPetsButton(_ sender: UIBarButtonItem) {
 	    let vc = storyboard?.instantiateViewController(withIdentifier: "myPetsVC")
 	    navigationController?.pushViewController(vc!, animated: false)
-    }
-    @IBAction func messagesButton(_ sender: UIBarButtonItem) {
+	}
+	@IBAction func messagesButton(_ sender: UIBarButtonItem) {
 	    let vc = storyboard?.instantiateViewController(withIdentifier: "messagesVC")
 	    navigationController?.pushViewController(vc!, animated: false)
-    }
+	}
+	
+	func reloadData() {
+		db.collection("lostPets").getDocuments { (querySnapshot, err) in
+			if let err = err {
+				print("Error getting documents: \(err)")
+			} else {
+				for document in querySnapshot!.documents {
+					print("\(document.documentID) => \(document.data())")
+					let documents = LostPets.init(dictionary: document.data())
+					self.lostPets.append(documents!)
+				}
+			}
+		}
+	}
+}
+
+extension LostPetsViewController: UITableViewDataSource {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return lostPets.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "lostPetsTVC", for: indexPath)
+		cell.textLabel?.text = lostPets[indexPath.row].petName
+		cell.detailTextLabel?.text = lostPets[indexPath.row].petType
+		cell.imageView?.image = #imageLiteral(resourceName: "P-C-T Logo")
+		return cell
+	}
 }
