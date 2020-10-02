@@ -13,15 +13,15 @@ import FirebaseStorage
 class LostPetsViewController: UIViewController, UITableViewDelegate {
 
 	@IBOutlet var lostPetsTableView: UITableView!
-	
-	var petName = [String]()
-	var petType = [String]()
 		
 	let db = Firestore.firestore()
 	let storage = Storage.storage()
 	
-	private var lostPets: [LostPets] = []
-	private var documents: [DocumentSnapshot] = []
+	var petName = [String]()
+	var petType = [String]()
+	var petBreed = [String]()
+	var userPhoneNumber = String()
+	var petCount = Int()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -30,6 +30,7 @@ class LostPetsViewController: UIViewController, UITableViewDelegate {
 		lostPetsTableView.delegate = self
 		lostPetsTableView.dataSource = self
 		
+		lostPetsTableView.reloadData()
 		reloadData()
 	}
 
@@ -47,15 +48,23 @@ class LostPetsViewController: UIViewController, UITableViewDelegate {
 	    navigationController?.pushViewController(vc!, animated: false)
 	}
 	
+	@IBAction func lostPetsButton(_ sender: UIBarButtonItem) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "lostPetsVC")
+		navigationController?.pushViewController(vc!, animated: false)
+	}
+	
 	func reloadData() {
-		db.collection("lostPets").getDocuments { (querySnapshot, err) in
+		self.db.collection("lostPets").getDocuments { (snapshot, err) in
 			if let err = err {
 				print("Error getting documents: \(err)")
 			} else {
-				for document in querySnapshot!.documents {
-					print("\(document.documentID) => \(document.data())")
-					let documents = LostPets.init(dictionary: document.data())
-					self.lostPets.append(documents!)
+				for document in snapshot!.documents {
+					self.petCount = snapshot?.documents.count ?? Int()
+					self.petName.append(document.get("petName") as? String ?? String())
+					self.petType.append(document.get("petType") as? String ?? String())
+					self.petBreed.append(document.get("petBreed") as? String ?? String())
+					self.userPhoneNumber = document.get("userPhoneNumber") as? String ?? String()
+					self.lostPetsTableView.reloadData()
 				}
 			}
 		}
@@ -64,13 +73,13 @@ class LostPetsViewController: UIViewController, UITableViewDelegate {
 
 extension LostPetsViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return lostPets.count
+		return petCount
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "lostPetsTVC", for: indexPath)
-		cell.textLabel?.text = lostPets[indexPath.row].petName
-		cell.detailTextLabel?.text = lostPets[indexPath.row].petType
+		cell.textLabel?.text = petName[indexPath.row]
+		cell.detailTextLabel?.text = "\(petType[indexPath.row])-\(petBreed[indexPath.row])"
 		cell.imageView?.image = #imageLiteral(resourceName: "P-C-T Logo")
 		return cell
 	}
