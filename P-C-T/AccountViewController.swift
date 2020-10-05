@@ -75,9 +75,9 @@ class AccountViewController: UIViewController {
 		navigationController?.pushViewController(vc!, animated: false)
 	}
 	
-	@IBAction func messagesButton(_ sender: UIBarButtonItem) {
-		let vc = storyboard?.instantiateViewController(withIdentifier: "messagesVC")
-		navigationController?.pushViewController(vc!, animated: false)
+	@IBAction func settingsButton(_ sender: UIBarButtonItem) {
+	    let vc = storyboard?.instantiateViewController(withIdentifier: "settingsVC")
+	    navigationController?.pushViewController(vc!, animated: false)
 	}
 	
 	@IBAction func nextButton(_ sender: UIButton) {

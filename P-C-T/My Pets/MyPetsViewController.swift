@@ -43,11 +43,10 @@ class MyPetsViewController: UIViewController, UITableViewDelegate {
 		let vc = storyboard?.instantiateViewController(withIdentifier: "lostPetsVC")
 		navigationController?.pushViewController(vc!, animated: false)
 	}
-	@IBAction func messagesButton(_ sender: UIBarButtonItem) {
-		let vc = storyboard?.instantiateViewController(withIdentifier: "messagesVC")
-		navigationController?.pushViewController(vc!, animated: false)
+	@IBAction func settingsButton(_ sender: UIBarButtonItem) {
+	    let vc = storyboard?.instantiateViewController(withIdentifier: "settingsVC")
+	    navigationController?.pushViewController(vc!, animated: false)
 	}
-	
 	//Segue Function
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let indexPath = myPetsTableView.indexPathForSelectedRow

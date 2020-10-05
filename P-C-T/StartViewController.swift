@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import FirebaseStorage
+import FirebaseFirestore
 
 class StartViewController: UIViewController, UITableViewDelegate, UITabBarDelegate {
 	
@@ -19,6 +21,15 @@ class StartViewController: UIViewController, UITableViewDelegate, UITabBarDelega
      var lostPets = [""]
      
      var userDefualts = UserDefaults.standard
+	
+	var petCount = Int()
+	var petName = [String]()
+	var petType = [String]()
+	var petBreed = [String]()
+	var userPhoneNumber = [String]()
+	
+	let db = Firestore.firestore()
+	let storage = Storage.storage()
      
      override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +56,10 @@ class StartViewController: UIViewController, UITableViewDelegate, UITabBarDelega
                    do {
                         let myPet = try PersistanceService.context.fetch(fetchRequest)
                         myPets = myPet
-                        print(myPet.count)
                         myPetsTableView.reloadData()
                    } catch {}
 		
+		reloadData()
     }
 	
      @IBAction func addPet(_ sender: UIButton) {
@@ -64,6 +75,29 @@ class StartViewController: UIViewController, UITableViewDelegate, UITabBarDelega
 		vc?.petName = myPets[(indexPath?.row)!].petName ?? String()
 		vc?.petType = myPets[(indexPath?.row)!].petType ?? String()
 		vc?.petBreed = myPets[(indexPath?.row)!].petBreed ?? String()
+		
+		let indexPathLP = lostPetsTableView.indexPathForSelectedRow
+		let nvc = segue.destination as? LostPetViewController
+		nvc?.petName = petName[indexPathLP!.row]
+		nvc?.userPhoneNumber = userPhoneNumber[indexPathLP!.row]
+
+	}
+	
+	func reloadData() {
+		self.db.collection("lostPets").getDocuments { (snapshot, err) in
+			if let err = err {
+				print("Error getting documents: \(err)")
+			} else {
+				for document in snapshot!.documents {
+					self.petCount = snapshot?.documents.count ?? Int()
+					self.petName.append(document.get("petName") as? String ?? String())
+					self.petType.append(document.get("petType") as? String ?? String())
+					self.petBreed.append(document.get("petBreed") as? String ?? String())
+					self.userPhoneNumber.append(document.get("userPhoneNumber") as? String ?? String())
+					self.lostPetsTableView.reloadData()
+				}
+			}
+		}
 	}
 	
 	//MARK: Toolbar Buttons
@@ -75,9 +109,9 @@ class StartViewController: UIViewController, UITableViewDelegate, UITabBarDelega
 		let vc = storyboard?.instantiateViewController(withIdentifier: "lostPetsVC")
 		navigationController?.pushViewController(vc!, animated: false)
 	}
-	@IBAction func messagesButton(_ sender: UIBarButtonItem) {
-		let vc = storyboard?.instantiateViewController(withIdentifier: "messagesVC")
-		navigationController?.pushViewController(vc!, animated: false)
+	@IBAction func settingsButton(_ sender: UIBarButtonItem) {
+	    let vc = storyboard?.instantiateViewController(withIdentifier: "settingsVC")
+	    navigationController?.pushViewController(vc!, animated: false)
 	}
 }
 
@@ -93,7 +127,7 @@ extension StartViewController: UITableViewDataSource {
                }
           }
           if tableView == lostPetsTableView {
-               count = lostPets.count
+               count = petCount
           }
           return count!
      }
@@ -109,7 +143,20 @@ extension StartViewController: UITableViewDataSource {
           
           if tableView == lostPetsTableView {
                cell = lostPetsTableView.dequeueReusableCell(withIdentifier: "lostPetsTVC", for: indexPath)
-               cell!.textLabel?.text = "This is for lost Pets"
+			cell!.textLabel?.text = petName[indexPath.row]
+			cell?.detailTextLabel?.text = "\(petType[indexPath.row])-\(petBreed[indexPath.row])"
+			
+			//Pulling Image from FirebaseStorage
+			let lostPetReference = self.storage.reference(forURL: "gs://pet-community-tr.appspot.com/lostPets/\(petName[indexPath.row])-\(userPhoneNumber[indexPath.row]).jpg")
+			lostPetReference.getData(maxSize: 1000 * 2048 * 2048) { (data, error) in
+				if let error = error {
+					print(error)
+				} else {
+					let baseImage = UIImage(data: data!)
+					cell?.imageView?.image = baseImage
+					self.lostPetsTableView.reloadData()
+			    }
+			}
           }
           
           return cell!

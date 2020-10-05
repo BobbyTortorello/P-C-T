@@ -7,18 +7,28 @@
 //
 
 import UIKit
-import MessageKit
+import MapKit
+import CoreData
 
-class MessageViewController: MessagesViewController {
+class SettingsViewController: UIViewController {
 
+	@IBOutlet var mapView: MKMapView!
+	@IBOutlet var milageLabel: UILabel!
+	@IBOutlet var milageSlider: UISlider!
+	
+	let defaults = UserDefaults.standard
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-	
-        // Do any additional setup after loading the view.
-	
+		milageLabel.text = "Show me lost pets within \(defaults.integer(forKey: "milage")) of my current location"
+		
+		milageSlider.value = Float(defaults.integer(forKey: "milage"))
      }
-    
-	//768 = y  coordinate for the messages so it doesn't get in the way of toolbar
+	
+	@IBAction func milageChanged(_ sender: UISlider) {
+		defaults.setValue(milageSlider.value, forKey: "milage")
+		milageLabel.text = "Show me lost pets within \(defaults.integer(forKey: "milage")) of my current location"
+	}
 	
 	//MARK: Toolbar Buttons
 	@IBAction func homeButton(_ sender: UIBarButtonItem) {

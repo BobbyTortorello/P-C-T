@@ -38,10 +38,10 @@
                                             <action selector="lostPetsButton:" destination="tjX-lH-cbD" id="l53-cn-dYZ"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Messages" image="message" catalog="system" width="93.75" id="dH8-ti-Vqc">
+                                    <barButtonItem title="Settings" image="gearshape" catalog="system" width="93.75" id="dH8-ti-Vqc">
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <action selector="messagesButton:" destination="tjX-lH-cbD" id="sJL-fu-ADq"/>
+                                            <action selector="settingsButton:" destination="tjX-lH-cbD" id="gV2-Mg-0Cb"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -152,8 +152,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s8g-2X-pej">
-                                                    <rect key="frame" x="110" y="0.0" width="100" height="75"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s8g-2X-pej">
+                                                    <rect key="frame" x="110" y="5" width="100" height="75"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -185,10 +185,10 @@
                                             <action selector="lostPetsButton:" destination="62O-YD-Jyk" id="LHc-T2-4Yy"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Messages" image="message" catalog="system" width="93.75" id="juA-LN-aYC">
+                                    <barButtonItem title="Setttings" image="gearshape" catalog="system" width="93.75" id="juA-LN-aYC">
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <action selector="messagesButton:" destination="62O-YD-Jyk" id="51J-CR-xMb"/>
+                                            <action selector="settingsButton:" destination="62O-YD-Jyk" id="5k5-pd-yvE"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -241,10 +241,10 @@
                                             <action selector="lostPetsButton:" destination="hBL-F6-of6" id="d8P-wM-PG4"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Messages" image="message" catalog="system" width="93.75" id="3CS-5p-PWx">
+                                    <barButtonItem title="Settings" image="gearshape" catalog="system" width="93.75" id="3CS-5p-PWx">
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <action selector="messagesButton:" destination="hBL-F6-of6" id="8YA-eZ-bbA"/>
+                                            <action selector="settingsButton:" destination="hBL-F6-of6" id="Ugt-7R-Hdd"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -254,33 +254,36 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="lostPetsTVC" textLabel="vyQ-is-i8y" detailTextLabel="oal-dg-ozM" rowHeight="75" style="IBUITableViewCellStyleSubtitle" id="mLb-tf-Dum">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="lostPetsTVC" textLabel="TCL-QQ-FWd" detailTextLabel="dBV-ho-SNZ" rowHeight="75" style="IBUITableViewCellStyleSubtitle" id="mLb-tf-Dum">
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mLb-tf-Dum" id="fbL-LI-DIL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="347.66666666666669" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lNb-uU-xMU">
-                                                    <rect key="frame" x="110" y="0.0" width="100" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vyQ-is-i8y">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TCL-QQ-FWd">
                                                     <rect key="frame" x="15.999999999999996" y="5" width="55.666666666666664" height="36"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oal-dg-ozM">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dBV-ho-SNZ">
                                                     <rect key="frame" x="16" y="41" width="82.666666666666671" height="30"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d1I-7s-e3Y">
+                                                    <rect key="frame" x="125" y="5" width="75" height="65"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="8Zb-Vj-hBf" kind="push" animates="NO" id="fLS-IB-xiJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -439,10 +442,10 @@
                                             <action selector="lostPetsButton:" destination="Xeb-ZO-shT" id="bsl-eS-Jyq"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Messages" image="message" catalog="system" width="93.75" id="boe-Mu-KDF">
+                                    <barButtonItem title="Settings" image="gearshape" catalog="system" width="93.75" id="boe-Mu-KDF">
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <action selector="messagesButton:" destination="Xeb-ZO-shT" id="krq-yu-IJ2"/>
+                                            <action selector="settingsButton:" destination="Xeb-ZO-shT" id="As4-Hq-5BO"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -464,10 +467,10 @@
             </objects>
             <point key="canvasLocation" x="2813.5999999999999" y="779.55665024630548"/>
         </scene>
-        <!--Message View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="HbX-dD-Gjo">
             <objects>
-                <viewController storyboardIdentifier="messagesVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fMH-yF-kPw" customClass="MessageViewController" customModule="P_C_T" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fMH-yF-kPw" customClass="SettingsViewController" customModule="P_C_T" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cef-SF-Az9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -494,22 +497,45 @@
                                             <action selector="lostPetsButton:" destination="fMH-yF-kPw" id="Vpg-t2-kqF"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Messages" image="message" catalog="system" width="93.75" id="cPf-cg-XPP">
+                                    <barButtonItem title="Settings" image="gearshape" catalog="system" width="93.75" id="cPf-cg-XPP">
                                         <connections>
                                             <action selector="messagesButton:" destination="62O-YD-Jyk" id="LNt-Ll-M5k"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lCX-V0-9Jo">
+                                <rect key="frame" x="16" y="44" width="343" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="JWW-ki-0wz">
+                                <rect key="frame" x="14" y="258" width="347" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="milageChanged:" destination="fMH-yF-kPw" eventType="valueChanged" id="qa2-IZ-nJ8"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCt-xR-w2O">
+                                <rect key="frame" x="50" y="295" width="275" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zXE-yC-ZKQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <connections>
+                        <outlet property="mapView" destination="lCX-V0-9Jo" id="JFn-xX-sQP"/>
+                        <outlet property="milageLabel" destination="ZCt-xR-w2O" id="Rsc-cW-l4T"/>
+                        <outlet property="milageSlider" destination="JWW-ki-0wz" id="voP-Ld-lkR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Etd-la-758" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1873" y="-584"/>
+            <point key="canvasLocation" x="1872.8" y="-584.48275862068965"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HPt-va-qpb">
@@ -626,10 +652,10 @@
                                             <action selector="lostPetsButton:" destination="aa6-0S-BBp" id="Uy8-Qe-9a4"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Messages" image="message" catalog="system" width="93.75" id="Tjb-VI-e32">
+                                    <barButtonItem title="Settings" image="gearshape" catalog="system" width="93.75" id="Tjb-VI-e32">
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <action selector="messagesButton:" destination="aa6-0S-BBp" id="0eS-BZ-2id"/>
+                                            <action selector="settingsButton:" destination="aa6-0S-BBp" id="F0a-Nd-6Ww"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -713,16 +739,71 @@
                                             <action selector="lostPetsButton:" destination="Hz3-ex-noG" id="621-Eu-Yxe"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Messages" image="message" catalog="system" width="93.75" id="jub-Yz-GJL">
+                                    <barButtonItem title="Settings" image="gearshape" catalog="system" width="93.75" id="jub-Yz-GJL">
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <action selector="messagesButton:" destination="Hz3-ex-noG" id="Dip-Do-2R8"/>
+                                            <action selector="settingsButton:" destination="Hz3-ex-noG" id="zrX-77-5a2"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5FD-MT-vtK" userLabel="Lost Pets View">
+                                <rect key="frame" x="0.0" y="555.66666666666663" width="375" height="171.33333333333337"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qwd-Pg-ZHm">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="171.33333333333334"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="171.33000000000001" id="Del-bQ-c4Y"/>
+                                            <constraint firstAttribute="width" constant="375" id="uYq-QD-bqT"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="lostPetsTVC" textLabel="rij-eU-T3v" detailTextLabel="ajV-Va-ic3" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="jPx-bk-Yv7">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jPx-bk-Yv7" id="u90-j3-bzm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="347.66666666666669" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q7F-8L-RBj">
+                                                            <rect key="frame" x="67" y="0.0" width="75" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rij-eU-T3v">
+                                                            <rect key="frame" x="16" y="7.9999999999999982" width="33" height="20.333333333333332"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ajV-Va-ic3">
+                                                            <rect key="frame" x="15.999999999999996" y="28.333333333333332" width="43.666666666666664" height="14.333333333333334"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <segue destination="8Zb-Vj-hBf" kind="push" animates="NO" id="bR3-wM-SYt"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qwd-Pg-ZHm" secondAttribute="bottom" id="8Bq-ut-c00"/>
+                                    <constraint firstItem="qwd-Pg-ZHm" firstAttribute="leading" secondItem="5FD-MT-vtK" secondAttribute="leading" id="ETV-Qy-LCn"/>
+                                    <constraint firstAttribute="trailing" secondItem="qwd-Pg-ZHm" secondAttribute="trailing" id="WZO-wH-spw"/>
+                                    <constraint firstAttribute="width" constant="375" id="cP1-bo-wB0"/>
+                                    <constraint firstItem="qwd-Pg-ZHm" firstAttribute="top" secondItem="5FD-MT-vtK" secondAttribute="top" id="e1k-jb-cW1"/>
+                                    <constraint firstAttribute="height" constant="171.33000000000001" id="ohQ-Fc-sKf"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTs-NR-cto" userLabel="My Pets View">
-                                <rect key="frame" x="0.0" y="382.33333333333331" width="375" height="171.33333333333331"/>
+                                <rect key="frame" x="0.0" y="283" width="375" height="171.33333333333331"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2i3-fe-k8e">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="171.33333333333334"/>
@@ -793,49 +874,17 @@
                                     <constraint firstItem="jVJ-70-qsB" firstAttribute="leading" secondItem="fTs-NR-cto" secondAttribute="leading" id="scA-NQ-2qS"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5FD-MT-vtK" userLabel="Lost Pets View">
-                                <rect key="frame" x="0.0" y="555.66666666666663" width="375" height="171.33333333333337"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qwd-Pg-ZHm">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="171.33333333333334"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="171.33000000000001" id="Del-bQ-c4Y"/>
-                                            <constraint firstAttribute="width" constant="375" id="uYq-QD-bqT"/>
-                                        </constraints>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="lostPetsTVC" id="jPx-bk-Yv7">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jPx-bk-Yv7" id="u90-j3-bzm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="qwd-Pg-ZHm" secondAttribute="bottom" id="8Bq-ut-c00"/>
-                                    <constraint firstItem="qwd-Pg-ZHm" firstAttribute="leading" secondItem="5FD-MT-vtK" secondAttribute="leading" id="ETV-Qy-LCn"/>
-                                    <constraint firstAttribute="trailing" secondItem="qwd-Pg-ZHm" secondAttribute="trailing" id="WZO-wH-spw"/>
-                                    <constraint firstAttribute="width" constant="375" id="cP1-bo-wB0"/>
-                                    <constraint firstItem="qwd-Pg-ZHm" firstAttribute="top" secondItem="5FD-MT-vtK" secondAttribute="top" id="e1k-jb-cW1"/>
-                                    <constraint firstAttribute="height" constant="171.33000000000001" id="ohQ-Fc-sKf"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dnE-dp-jo8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QJc-mf-LIf" firstAttribute="leading" secondItem="dnE-dp-jo8" secondAttribute="leading" id="3Fq-9h-zw8"/>
                             <constraint firstItem="fTs-NR-cto" firstAttribute="leading" secondItem="dnE-dp-jo8" secondAttribute="leading" id="3lW-vw-GMm"/>
-                            <constraint firstItem="5FD-MT-vtK" firstAttribute="top" secondItem="fTs-NR-cto" secondAttribute="bottom" constant="2" id="Cgb-m1-skS"/>
+                            <constraint firstItem="5FD-MT-vtK" firstAttribute="top" secondItem="fTs-NR-cto" secondAttribute="bottom" constant="101.33333333333331" id="Cgb-m1-skS"/>
                             <constraint firstItem="5FD-MT-vtK" firstAttribute="leading" secondItem="dnE-dp-jo8" secondAttribute="leading" id="GYE-Ge-JOH"/>
                             <constraint firstItem="QJc-mf-LIf" firstAttribute="top" secondItem="5FD-MT-vtK" secondAttribute="bottom" constant="2" id="JjO-Fa-imW"/>
                             <constraint firstItem="QJc-mf-LIf" firstAttribute="top" secondItem="5FD-MT-vtK" secondAttribute="bottom" constant="2" id="LgD-fz-tMc"/>
-                            <constraint firstItem="5FD-MT-vtK" firstAttribute="top" secondItem="fTs-NR-cto" secondAttribute="bottom" constant="2" id="MNI-KO-RN2"/>
+                            <constraint firstItem="5FD-MT-vtK" firstAttribute="top" secondItem="fTs-NR-cto" secondAttribute="bottom" constant="101.33333333333331" id="MNI-KO-RN2"/>
                             <constraint firstItem="5FD-MT-vtK" firstAttribute="trailing" secondItem="dnE-dp-jo8" secondAttribute="trailing" id="XR0-Yz-tVR"/>
                             <constraint firstItem="QJc-mf-LIf" firstAttribute="trailing" secondItem="dnE-dp-jo8" secondAttribute="trailing" id="aj8-3U-i8v"/>
                             <constraint firstItem="fTs-NR-cto" firstAttribute="trailing" secondItem="dnE-dp-jo8" secondAttribute="trailing" id="eXU-xn-ot8"/>
@@ -856,16 +905,106 @@
             </objects>
             <point key="canvasLocation" x="1873" y="112"/>
         </scene>
+        <!--Lost Pet View Controller-->
+        <scene sceneID="xeR-dg-BXr">
+            <objects>
+                <viewController storyboardIdentifier="lostPetVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Zb-Vj-hBf" customClass="LostPetViewController" customModule="P_C_T" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oUJ-V6-7J0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngM-FF-Uil">
+                                <rect key="frame" x="0.0" y="734" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Home" image="house" catalog="system" width="93.75" id="uKc-Mg-iQ7">
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="homeButton:" destination="8Zb-Vj-hBf" id="fc1-yb-Orq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="MyPets" image="MyPetsLogo" width="93.75" style="done" id="Blz-fM-3DL">
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="myPetsButton:" destination="8Zb-Vj-hBf" id="zLx-Kn-Ler"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="LostPets" image="hand.raised.slash" catalog="system" width="93.75" id="e4U-23-VJM">
+                                        <connections>
+                                            <action selector="lostPetsButton:" destination="8Zb-Vj-hBf" id="67U-M1-0zJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Settings" image="gearshape" catalog="system" width="93.75" id="dGL-JU-YQV">
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="settingsButton:" destination="8Zb-Vj-hBf" id="ypu-mK-iPR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0TD-YS-JBi">
+                                <rect key="frame" x="16" y="44" width="343" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pet Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mz-5P-2H1">
+                                <rect key="frame" x="16" y="255" width="343" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mark as Missing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hio-kt-C6w">
+                                <rect key="frame" x="16" y="659" width="343" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmZ-tM-4o2">
+                                <rect key="frame" x="16" y="659" width="343" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pet Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjg-nV-gaH">
+                                <rect key="frame" x="16" y="355" width="343" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pet Breed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zua-kN-1qo">
+                                <rect key="frame" x="16" y="455" width="343" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="c2m-if-W6m"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XJa-0y-fbQ"/>
+                    <connections>
+                        <outlet property="lostPetBreedLabel" destination="Zua-kN-1qo" id="bQE-Kn-aT0"/>
+                        <outlet property="lostPetImageView" destination="0TD-YS-JBi" id="xxn-9o-D5C"/>
+                        <outlet property="lostPetNameLabel" destination="2Mz-5P-2H1" id="9nw-My-2Zf"/>
+                        <outlet property="lostPetTypeLabel" destination="bjg-nV-gaH" id="q89-k5-d5b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="74l-bR-ayS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="1448"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="bR3-wM-SYt"/>
         <segue reference="eBc-Ki-DLL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="MyPetsLogo" width="25" height="23.333333969116211"/>
         <image name="P-C-T Logo" width="416" height="384"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="hand.raised.slash" catalog="system" width="128" height="128"/>
         <image name="house" catalog="system" width="128" height="106"/>
-        <image name="message" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
