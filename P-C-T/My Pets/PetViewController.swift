@@ -74,6 +74,12 @@ class PetViewController: UIViewController {
 		}
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		let vc = segue.destination as? MyPetsViewController
+		let indexPath = vc?.myPetsTableView.indexPathForSelectedRow
+		petName = (vc?.myPets[(indexPath?.row)!].petName) ?? String()
+	}
+	
 
 	//MARK: Toolbar Buttons
 	@IBAction func homeButton(_ sender: UIBarButtonItem) {

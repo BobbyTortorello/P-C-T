@@ -49,12 +49,12 @@ class MyPetsViewController: UIViewController, UITableViewDelegate {
 	}
 	//Segue Function
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let indexPath = myPetsTableView.indexPathForSelectedRow
 		let vc = segue.destination as? PetViewController
-		vc?.petImage = myPets[(indexPath?.row)!].petImage ?? UIImage()
+		let indexPath = myPetsTableView.indexPathForSelectedRow
 		vc?.petName = myPets[(indexPath?.row)!].petName ?? String()
 		vc?.petType = myPets[(indexPath?.row)!].petType ?? String()
 		vc?.petBreed = myPets[(indexPath?.row)!].petBreed ?? String()
+		vc?.petImage = myPets[(indexPath?.row)!].petImage ?? UIImage()
 	}
 }
 
